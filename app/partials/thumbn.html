@@ -1,0 +1,45 @@
+<!--div class="container" ng-init="expression">
+          <div class="row">
+            <div class="col-md-*"  >
+             
+              <br/>
+
+              <div class="row "  >
+
+                 <div class="col-sm-3 col-md-2" ng-repeat="course in courses | filter :  { name: searchText} | orderBy : orderTerm | limitTo: maxResults">
+                <div class="thumbnail">
+                  <img ng-src="http://i.imgur.com/{{course.pic}}" width="150px" />
+               
+                <div class="caption">
+                
+                    <a href='#/details' class="h6">{{course.name | uppercase}}</a>
+                
+                 
+                </div>
+                </div>
+               
+              </div>
+
+            </div>
+
+            </div>
+
+          </div>
+        </div-->
+
+
+
+
+<div class="container" >
+     <div class="row" >
+       <div class="col-sm-6 col-md-4" ng-repeat="item in courses">
+        <div class="thumbnail" style="height:300px;width:300px;">
+           
+           <img ng-src="http://i.imgur.com/{{item.pic}}" class="img-rounded" style="height:230px;width:230px;" />            <div class="caption">
+          <center><a href='#/details/{{item.id}}' class="h3">{{item.name}}<a></center>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+        

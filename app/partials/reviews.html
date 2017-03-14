@@ -1,0 +1,81 @@
+
+<style>
+  input.ng-dirty.ng-invalid
+  {
+    background-color: red;
+  }
+
+  input.ng-dirty.ng-valid
+  {
+    background-color: green;
+    color:white;
+  }
+
+  input.ng-pristine.ng-invalid
+  {
+    background-color: yellow;
+  }
+
+
+
+
+
+
+  </style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+<ng-form class="form-horizontal" name="newReviewForm" role="form">
+
+   <div class="form-group col-md-8">
+    <label >Username</label>
+    <input type="text" class="form-control " placeholder="Username" 
+    ng-model="review.name " maxlength="50" required></input>
+  </div>
+
+  
+
+  <div class="form-group col-md-8">
+    <label >Rating</label>
+    <input type="number" class="form-control" min="1" max="10" placeholder="Rating"  ng-model="review.rating" required></input>
+  </div>
+
+  
+
+  <!--div class="form-group col-md-8">
+          <label class="col-sm-2 control-label">Date</label>
+       
+            <input type="text" class="form-control" ng-model="course.date" placeholder="enter date in dd/mm/yyyy" ng-pattern="/\d\d/\d\d/\d\d\d\d/">
+        </div-->
+
+   
+
+  
+ 
+
+  <div class="form-group col-md-8">
+    <label >Review</label>
+  
+  <textarea class="form-control" cols="20" rows="5" 
+  ng-model="review.comment" required></textarea>
+  </div>
+   <my-preview></my-preview>
+
+ 
+  
+   <div class="form-group col-md-8 ">
+  <button class="btn btn-success pull-right" ng-disabled="newReviewForm.$invalid"  ng-click="addReview(review,newReviewForm)">Create</button>
+ </div>
+</div>
+</ ng-form>
+</div>
+<!--div class="col-md-4">
+      <img ng-src="http://i.imgur.com/{{course.pic}}" width="200px">
+    </div-->
+
+    </div>
+ 
+ </div>
+	
+

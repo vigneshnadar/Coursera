@@ -1,0 +1,96 @@
+<head>
+	<style>
+	h7{
+		color:white;
+	}
+
+</style>
+<div class="container">
+<div class="row well">
+	<div class="col-md-4" style="margin-left:0px">
+		<img ng-src="http://i.imgur.com/{{course.pic}}"class="img-rounded" height="270px" width="270px" />
+	</div>
+	<div class="col-md-6">
+		<div>
+			<a href='' ng-click="showCourseDetails(course)" class="h4">{{course.name | uppercase}}</a>
+		</div>
+		<div>
+			<p>
+				<span ng-show="!showCompleteDescription">{{course.description | limitTo : maxLength}}</span>
+				<span ng-show="showCompleteDescription">{{course.description}}</span>
+				<span ng-show="course.description.length >maxLength && !showCompleteDescription">...</span>
+				<a href='' ng-show="course.description.length >
+					maxLength && !showCompleteDescription" ng-click="showCompleteDescription = true" >more
+				</a>
+			</p>
+		</div>
+	</div>
+	<!--div class="col-md-1">
+		<div ng-bind="course.price | currency  ">{{course.name}}</div>
+	</div>
+	<div class="col-md-1">
+		<button class="btn btn-sm btn-success" ng-click="add(course)">add</button>
+	</div>
+	<!--div class="col-md-1">
+		{{avgRate}}</div>
+		<div class="col-md-3 pull right">
+		<div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="10" style="width:{{avgRate*10}}%">
+    <span class="sr-only">45% Complete</span>{{avgRate*10}}%
+  </div>
+	</div-->
+<div class="col-md-2">
+<div>              <!--div ng-bind="course.price | currency  ">{{course.name}}</div-->
+<button type="button" style="width:120px" class="btn btn-info btn-xs">Price:&nbsp{{course.price | currency }}</button>
+</div><br>
+
+<div><button type="button" style="width:120px" class="btn btn-warning btn-xs">Overall Rating:&nbsp{{avgRate | number:2}}</button>
+</div>
+
+<br>
+<!--<div class="row col-md-2">-->
+<div style="width:120px">		
+<my-progresss></my-progresss></div>
+
+<div>
+	<br>
+	<button style="width:120px" class="btn btn-default"> <a href='#/review/{{course.id}}' class="h4">Add review</a></button>
+</div>
+</div>
+	<!--div class="row well" ng-repeat="review in reviews" -->
+		
+		
+</div>
+</div>
+</div><!--h1>end of row well</h1-->
+<br>
+<!--div class="row well" >
+	<h4><div class="row">
+	<div class="col-md-3">Date</div>
+	<div class="col-md-2">Username</div>
+	<div class="col-md-4">Review</div>
+	<div class="col-md-1">Rating</div>
+	<div class="col-md-2">Mark as Useful </div></h4>
+</div-->
+
+
+ <div  ng-repeat="review in reviews | filter:{id: course.id}  | orderBy:'date':true ">
+    
+  <center>       <div CLASS=" row well">
+         	<div class="col-md-3"><h7 style="color:white">Posted on:<br></h7>
+         		{{review.date | date:'MM/dd/yyyy @ h:mma' }}</div>
+          <div class="col-md-2"><h7>Username:<br></h7>{{review.name}}</div>
+		<div class="col-md-4"><DIV><p><h7>Review:<br></h7>{{review.comment}}</p></div></div>
+		
+	<div class="col-md-1"><h7>Rating:<br></h7>{{review.rating}}</div>
+	<div class="row col-md-2"><h7>Mark as Useful:<br></h7><button type="button" ng-click="review.cntup = review.cntup + 1" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" ></span></button>{{review.cntup}}
+		<button type="button" ng-click="review.cntdown = review.cntdown + 1" class="btn btn-default"><span class="glyphicon glyphicon-thumbs-down" ></span></button>{{review.cntdown}}</div><center>
+	<!--div class="row col-md-2">{{review.cntup}}/{{review.cntdown}}</div-->
+	<!--div class="col-md-3">{{review.cntup}}/{{review.cntdown}}</span>
+	<input type="button" value="up" ng-click="review.cntup = review.cntup + 1"></button>
+	<input type="button" value="down" ng-click="review.cntdown = review.cntdown + 1"></button></div-->
+               </div>
+          
+         </div>
+     </div>
+
+<!--div class="row well" ng-repeat="course in courses | filter :  { name: searchText} | orderBy : orderTerm | limitTo: maxResults" //{ date: review.date}:true    -- >
